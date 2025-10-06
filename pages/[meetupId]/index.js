@@ -11,4 +11,28 @@ function MeetupDetails() {
   );
 }
 
+export async function getStaticPaths() {
+  return {
+    fallback: false,
+    paths: [{ params: { meetupId: 'm1' } }, { params: { meetupId: 'm2' } }],
+  };
+}
+
+export async function getStaticProps(context) {
+  const meetupId = context.params.meetupId;
+  console.log(meetupId);
+  return {
+    props: {
+      meetupData: {
+        image:
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Paide_ordulinnuse_varemed.JPG/1920px-Paide_ordulinnuse_varemed.JPG',
+        id: meetupId,
+        title: 'A First meetup',
+        address: 'Some street, some city',
+        description: 'The meetup description',
+      },
+    },
+  };
+}
+
 export default MeetupDetails;
