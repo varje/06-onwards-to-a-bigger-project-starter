@@ -1,4 +1,4 @@
-import { MongoClient } from 'mongodb';
+import { connectToDatabase } from '../../helpers/db';
 
 async function handler(req, res) {
   if (req.method === 'POST') {
