@@ -1,8 +1,17 @@
+import Head from 'next/head';
 import MeetupList from '../components/meetups/MeetupList';
 import { connectToDatabase } from '../helpers/db';
+import { Fragment } from 'react/jsx-runtime';
 
 function HomePage(props) {
-  return <MeetupList meetups={props.meetups} />;
+  return (
+  <Fragment>
+    <Head>
+      <title>React Meetups</title>
+      <meta name="description" content="Browse a huge list of highly active React meetups!"/>
+    </Head>
+    <MeetupList meetups={props.meetups} />
+  </Fragment>);
 }
 
 // export async function getServerSideProps(context) {
